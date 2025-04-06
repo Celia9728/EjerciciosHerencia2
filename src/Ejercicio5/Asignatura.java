@@ -1,7 +1,7 @@
-
 package Ejercicio5;
 
 public class Asignatura {
+
     private int codigo;
     private int numeroHoras;
 
@@ -17,6 +17,16 @@ public class Asignatura {
     public int getNumeroHoras() {
         return this.numeroHoras;
     }
-    
-    
+
+    // METODO TOSTRING
+    @Override
+    public String toString() {
+        String mensaje;
+        mensaje = "-----------------------------------------\n";
+        mensaje += "Numero de codigo: " + this.codigo + "\n";
+        mensaje += "Numero de horas: " + this.numeroHoras + "\n";
+        mensaje += "-----------------------------------------\n";
+        return mensaje;
+    }
+
 }
