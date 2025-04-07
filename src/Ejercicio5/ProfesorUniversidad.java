@@ -35,15 +35,6 @@ public class ProfesorUniversidad extends Profesor {
         }
     }
 
-    @Override
-    public void empezarClase() {
-        if (estaInvestigando) {
-            System.out.println("No puede dar clase porque esta investigando.");
-        } else {
-            super.empezarClase();
-        }
-    }
-
     public void pararInvestigar() {
         if (!puedeInvestigar) {
             System.out.println(super.getNombre() + " no puede investigar ya que le faltan número de horas de clase”. ");
@@ -55,6 +46,15 @@ public class ProfesorUniversidad extends Profesor {
         } else {
             System.out.println(super.getNombre() + " ha parado de investigar.");
             estaInvestigando = false;
+        }
+    }
+
+    @Override
+    public void empezarClase() {
+        if (estaInvestigando) {
+            System.out.println("No puede dar clase porque esta investigando.");
+        } else {
+            super.empezarClase();
         }
     }
 
@@ -114,5 +114,4 @@ public class ProfesorUniversidad extends Profesor {
             this.numeroHorasInvestigar = 0;
         }
     }
-
 }
