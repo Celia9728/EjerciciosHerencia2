@@ -8,7 +8,7 @@ public class Profesor {
     protected boolean enClase;
 
     protected Asignatura[] listaAsignaturas;
-    protected int cantidadAsignaturas;
+    protected int numeroAsignaturasProfesor;
 
     // CONSTRUCTOR
     public Profesor(String nombre, int numeroAsignaturas) {
@@ -24,7 +24,7 @@ public class Profesor {
     }
 
     public int getCantidadAsignaturas() {
-        return this.cantidadAsignaturas;
+        return this.numeroAsignaturasProfesor;
     }
 
     // METODOS PARA USAR FUERA
@@ -34,8 +34,7 @@ public class Profesor {
         if (enClase) {
             System.out.println("No puede dar clase porque ya esta en una");
         } else {
-            asignatura = (int) (Math.random() * cantidadAsignaturas);
-//            asignatura = (int) (random(-1, cantidadAsignaturas));
+            asignatura = (int) (Math.random() * numeroAsignaturasProfesor);
             System.out.println(this.nombre + " esta dando clase de " + this.listaAsignaturas[asignatura].getCodigo());
             enClase = true;
         }
@@ -52,7 +51,7 @@ public class Profesor {
 
     public int contarHoras() {
         this.horasTotalesAignaturas = 0;
-        for (int i = 0; i < this.cantidadAsignaturas; i++) {
+        for (int i = 0; i < this.numeroAsignaturasProfesor; i++) {
             this.horasTotalesAignaturas += listaAsignaturas[i].getNumeroHoras();
         }
         return this.horasTotalesAignaturas;
@@ -62,7 +61,7 @@ public class Profesor {
         for (int i = 0; i < this.listaAsignaturas.length; i++) {
             if (this.listaAsignaturas[i] == null) {
                 this.listaAsignaturas[i] = new Asignatura(random(100, 200), random(3, 8));
-                this.cantidadAsignaturas++;
+                this.numeroAsignaturasProfesor++;
                 contarHoras();
                 return;
 
@@ -77,16 +76,15 @@ public class Profesor {
         mensaje = "Nombre: " + this.nombre + "\n";
         mensaje += "Horas totales: " + this.horasTotalesAignaturas + "\n";
         mensaje += "Esta en clase: " + this.enClase + "\n";
-        mensaje += "Total de asignatura: " + this.cantidadAsignaturas + "\n";
+        mensaje += "Total de asignatura: " + this.numeroAsignaturasProfesor + "\n";
 
         return mensaje;
     }
 
     // METODOS PARA USAR SOLO DENTRO DE CLASE
     private void crearAsignatura(int longitud) {
-        int cantidad = random(0, longitud);
-        this.cantidadAsignaturas = cantidad;
-        for (int i = 0; i < cantidad; i++) {
+        this.numeroAsignaturasProfesor = random(0, longitud);
+        for (int i = 0; i < this.numeroAsignaturasProfesor; i++) {
             this.listaAsignaturas[i] = new Asignatura(random(100, 200), random(3, 8));
             this.horasTotalesAignaturas += listaAsignaturas[i].getNumeroHoras();
         }
