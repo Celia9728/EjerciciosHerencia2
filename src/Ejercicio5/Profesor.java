@@ -90,8 +90,8 @@ public class Profesor {
         }
     }
 
-    public int random(int numero1, int numero2) {
-        int random = numero1 + (int) (Math.random() * numero2) + 1;
+     public int random(int numero1, int numero2) {
+        int random = numero1 + (int) (Math.random() * ( numero2 - numero1 + 1));
         return random;
     }
 }
